@@ -1,7 +1,7 @@
-import type { GameOutput, GameInfo, Gameplay, GameStats, Team, BatterEntry, PitcherEntry, AtBat } from 'scorekeepr'
+import type { GameOutput, GameInfo, Gameplay, GameStats, Team, BatterEntry, PitcherEntry, AtBat, BaseResult } from 'scorekeepr'
 
 // Re-export scorekeepr types for use in components
-export type { GameOutput, GameInfo, Gameplay, GameStats, Team, BatterEntry, PitcherEntry, AtBat }
+export type { GameOutput, GameInfo, Gameplay, GameStats, Team, BatterEntry, PitcherEntry, AtBat, BaseResult }
 
 // Mock data store using scorekeepr types
 const mockScorecards: GameOutput[] = [
