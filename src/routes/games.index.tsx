@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { getScorecards } from '~/utils/scorecards'
-import { ScorecardList } from '~/components/scorecards/ScorecardList'
+import { getScorecards } from '~/games/api'
+import { ScorecardList } from '~/games/components/ScorecardList'
 
 export const Route = createFileRoute('/games/')({
   component: GamesIndexComponent,

@@ -1,7 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { NotFound } from 'src/components/NotFound'
-import { UserErrorComponent } from 'src/components/UserError'
-import type { User } from '../utils/users'
+import { NotFound } from '~/shared/components/NotFound'
+import { UserErrorComponent } from '~/shared/components/UserError'
+import type { User } from '~/shared/utils/users'
 
 export const Route = createFileRoute('/users/$userId')({
   loader: async ({ params: { userId } }) => {

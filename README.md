@@ -1,36 +1,50 @@
-# TanStack Start - Basic Example
+# Scorebook - Baseball Scorecard Viewer
 
-This is the basic TanStack Start example, demonstrating the fundamentals of building applications with TanStack Router and TanStack Start.
+A TanStack Start application for viewing baseball game scorecards.
 
-- [TanStack Router Docs](https://tanstack.com/router)
+## Features
 
-It's deployed automagically with Netlify!
+- Visual scorecard grids with inning-by-inning scoring
+- Team lineups and pitching rotations
+- Game statistics and summaries
+- Built with TanStack Start + React + TypeScript
 
-- [Netlify](https://netlify.com/)
+## Linked Dependencies
 
-## Start a new project based on this example
+### scorekeepr (local development)
 
-To start a new project based on this example, run:
+This project uses the `scorekeepr` library for baseball scorekeeping data types. The package is linked locally so you can make changes to the library and see them immediately.
 
-```sh
-npx gitpick TanStack/router/tree/main/examples/react/start-basic start-basic
+**Setup:**
+```bash
+# Link is already configured, but if you need to set it up:
+cd /Users/nathangriffin/Development/scorekeepr
+npm link
+
+cd /Users/nathangriffin/Development/scorebook-tanstack
+npm link scorekeepr
 ```
 
-## Getting Started
+**Development workflow:**
+1. Make changes to `scorekeepr` library in `/Users/nathangriffin/Development/scorekeepr`
+2. If you add new exports, make sure to rebuild: `npm run build` in the scorekeepr directory
+3. Changes are automatically reflected in scorebook-tanstack (no reinstall needed)
 
-From your terminal:
+## Development
 
-```sh
-pnpm install
-pnpm dev
+```bash
+npm install
+npm run dev
 ```
 
-This starts your app in development mode, rebuilding assets on file changes.
+The app runs at http://localhost:3000
+
+## Backend Structure
+
+The `/backend` folder contains scaffolding for a future API and data ingestion pipeline that will use scorekeepr to process game data.
 
 ## Build
 
-To build the app for production:
-
-```sh
-pnpm build
+```bash
+npm run build
 ```

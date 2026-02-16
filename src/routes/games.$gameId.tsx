@@ -1,7 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { getScorecardById } from '~/utils/scorecards'
-import { ScorecardGrid } from '~/components/scorecards/ScorecardGrid'
-import { NotFound } from '~/components/NotFound'
+import { getScorecardById } from '~/games/api'
+import { ScorecardGrid } from '~/games/components/ScorecardGrid'
+import { NotFound } from '~/shared/components/NotFound'
 
 export const Route = createFileRoute('/games/$gameId')({
   component: GameDetailComponent,

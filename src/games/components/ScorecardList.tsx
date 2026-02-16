@@ -1,15 +1,15 @@
-import type { Scorecard } from '~/utils/scorecards'
+import type { GameOutput } from '~/games/api'
 import { Link } from '@tanstack/react-router'
 
 interface ScorecardListProps {
-  scorecards: Scorecard[]
+  scorecards: GameOutput[]
 }
 
 export function ScorecardList({ scorecards }: ScorecardListProps) {
   if (scorecards.length === 0) {
     return (
       <div className="text-center py-8 text-gray-500">
-        No games found for this date.
+        No games found.
       </div>
     )
   }
@@ -25,29 +25,26 @@ export function ScorecardList({ scorecards }: ScorecardListProps) {
         >
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
-              <div className="text-sm text-gray-500">{scorecard.gameDate}</div>
+              <div className="text-sm text-gray-500">{scorecard.gameInfo.date}</div>
               <div className="flex items-center gap-2">
-                <span className="font-semibold">{scorecard.awayTeam}</span>
+                <span className="font-semibold">{scorecard.gameInfo.visitingTeam.fullName}</span>
                 <span className="text-gray-400">@</span>
-                <span className="font-semibold">{scorecard.homeTeam}</span>
+                <span className="font-semibold">{scorecard.gameInfo.homeTeam.fullName}</span>
               </div>
             </div>
             <div className="flex items-center gap-4">
               <div className="text-2xl font-bold">
-                {scorecard.awayScore} - {scorecard.homeScore}
+                {scorecard.stats.visiting.runs} - {scorecard.stats.home.runs}
               </div>
               <div className="text-sm text-gray-500">
-                {scorecard.innings} inn
+                {scorecard.stats.home.scoring.length} inn
               </div>
             </div>
           </div>
-          {(scorecard.winningPitcher || scorecard.losingPitcher) && (
-            <div className="mt-2 text-xs text-gray-500">
-              {scorecard.winningPitcher && `W: ${scorecard.winningPitcher} `}
-              {scorecard.losingPitcher && `L: ${scorecard.losingPitcher} `}
-              {scorecard.save && `SV: ${scorecard.save}`}
-            </div>
-          )}
+          <div className="mt-2 text-xs text-gray-500">
+            H: {scorecard.stats.home.hits} | E: {scorecard.stats.home.errors} &nbsp;&nbsp;
+            V: {scorecard.stats.visiting.hits} | E: {scorecard.stats.visiting.errors}
+          </div>
         </Link>
       ))}
     </div>
